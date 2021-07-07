@@ -7,20 +7,25 @@ function inputLength() {
 }
 
 function createTodo() {
-    let li = document.createElement("li")
-    li.appendChild(document.createTextNode(userInput.value))
+    const li = document.createElement('li')
+    li.innerHTML = userInput.value;
     ul.appendChild(li)
     userInput.value = ''
 
-    
+    function done() {
+        li.classList.toggle('done')
+    }
 
-    let deleteButton = document.createElement('button')
-    deleteButton.appendChild(document.createTextNode('X'))
+    li.addEventListener('click', done)
+
+    const deleteButton = document.createElement('button')
+    deleteButton.innerHTML = '<i class="fas fa-times"></i>'
     li.appendChild(deleteButton)
     deleteButton.addEventListener('click', deleteToDoItem)
 
     function deleteToDoItem() {
-        li.classList.add('delete')
+        //li.classList.add('delete')
+        ul.removeChild(li)
     }
 }
 
@@ -30,4 +35,11 @@ function changeListAfterKeypress(event) {
     }
 }
 
+function changeListAfterClick() {
+    if (inputLength()) {
+        createTodo()
+    }
+}
+
 userInput.addEventListener('keypress', changeListAfterKeypress)
+buttonEnter.addEventListener('click', changeListAfterClick)
