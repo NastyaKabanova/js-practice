@@ -1,45 +1,105 @@
-const buttonEnter = document.getElementById('enter')
-const userInput = document.getElementById('userInput')
-const ul = document.querySelector('ul')
 
-function inputLength() {
-    return userInput.value.length > 0
-}
 
-function createTodo() {
-    const li = document.createElement('li')
-    li.innerHTML = userInput.value;
-    ul.appendChild(li)
-    userInput.value = ''
+$(function () {
+  const buttonEnter = $('#enter')
+  const userInput = $('#userInput')
+  const ul = $('ul')
 
-    function done() {
-        li.classList.toggle('done')
+  const items = JSON.parse(localStorage.getItem('todos') || '[]');
+
+  function saveItems() {
+    localStorage.setItem('todos', JSON.stringify(items))
+  }
+
+  function addItem(text) {
+    const item = {
+      id: Date.now(),
+      text,
+      done: false,
+    };
+
+    items.push(item);
+    saveItems();
+
+    return item;
+  }
+
+  function removeItem(id) {
+    const idx = items.findIndex(i => i.id === id)
+
+    if (idx > -1) {
+      items.splice(idx, 1)
     }
 
-    li.addEventListener('click', done)
+    saveItems();
+  }
 
-    const deleteButton = document.createElement('button')
-    deleteButton.innerHTML = '<i class="fas fa-times"></i>'
-    li.appendChild(deleteButton)
-    deleteButton.addEventListener('click', deleteToDoItem)
+  function toggleItem(id) {
+    const idx = items.findIndex(i => i.id === id)
 
-    function deleteToDoItem() {
-        //li.classList.add('delete')
-        ul.removeChild(li)
+    if (idx > -1) {
+      items[idx].done = !items[idx].done;
     }
-}
 
-function changeListAfterKeypress(event) {
-    if (inputLength() && event.which == 13) {
+    saveItems();
+  }
+
+  function createItemDOM(item) {
+    const id = item.id;
+    const li = $('<li>')
+    li.html(item.text);
+    ul.append(li)
+
+    li.click(function() {
+      toggleItem(id)
+      $(this).toggleClass('done')
+    })
+
+    if (item.done) {
+      li.toggleClass('done')
+    }
+
+    const deleteButton = $('<button>')
+    deleteButton.html('<i class="fas fa-times"></i>')
+    li.append(deleteButton)
+    deleteButton.click(function () {
+      removeItem(id);
+      li.remove();
+    })
+  }
+
+  function renderItems() {
+    ul.html('');
+
+    items.forEach((i) => {
+      createItemDOM(i)
+    });
+  }
+
+  function inputLength() {
+      return userInput.val().length > 0
+  }
+
+  function createTodo() {
+    const item = addItem(userInput.val())
+    createItemDOM(item);
+    userInput.val('')
+  }
+
+  function changeListAfterKeypress(event) {
+      if (inputLength() && event.which == 13) {
         createTodo()
-    }
-}
+      }
+  }
 
-function changeListAfterClick() {
-    if (inputLength()) {
-        createTodo()
-    }
-}
+  function changeListAfterClick() {
+      if (inputLength()) {
+          createTodo()
+      }
+  }
 
-userInput.addEventListener('keypress', changeListAfterKeypress)
-buttonEnter.addEventListener('click', changeListAfterClick)
+  userInput.keypress(changeListAfterKeypress)
+  buttonEnter.click(changeListAfterClick);
+
+  renderItems();
+});

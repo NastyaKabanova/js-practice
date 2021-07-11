@@ -1,0 +1,116 @@
+$primary-color: #04A1BF
+
+body
+	background: $primary-color
+	text-align: center
+	font-family: 'Open Sans', sans-serif
+
+
+.intro
+	margin: 30px 0px
+	font-weight: bold
+
+
+h1
+	color: #ffffff
+	text-transform: uppercase
+	font-weight: 800
+
+
+p
+	font-weight: 600
+
+
+#first
+	margin-top: 10px
+	color: #FFCD5D
+
+
+#second
+	color: #51DF70
+
+
+
+#third
+	color: #025F70
+	margin-bottom: 30px
+
+#enter
+	border: none
+	padding: 5px 15px
+	border-radius: 5px
+	color: $primary-color
+	background-color: #025F70
+	transition: all 0.75s ease
+	-webkit-transition: all 0.75s ease
+	-moz-transition: all 0.75s ease
+	-ms-transition: all 0.75s ease
+	-o-transition: all 0.75 ease
+	font-weight: normal
+
+
+#enter:hover
+	background-color: #02798F
+	color: #FFCD5D
+
+ul
+	text-align: left
+	margin-top: 20px
+
+@keyframes li-enter
+	from
+		transform: translateX(500px)
+		opacity: 0
+	to
+		transform: translateX(0px)
+		opacity: 1
+
+li
+	list-style: none
+	padding: 10px 20px
+	color: #ffffff
+	text-transform: capitalize
+	font-weight: 600
+	border: 2px solid #025f70
+	border-radius: 5px
+	margin-bottom: 10px
+	background: #4EB9CD
+	transition: all 0.75s ease-out
+	-webkit-transition: all 0.75s ease-out
+	-moz-transition: all 0.75s ease-out
+	-ms-transition: all 0.75s ease-out
+	-o-transition: all 0.75 ease-out
+	animation: 0.7s linear li-enter
+
+	&.done
+		text-decoration: line-through
+
+	&:hover
+		background: #76CFE0
+		margin-left: 30px
+		margin-right: -30px
+
+	& > button
+		font-weight: normal
+		background: none
+		border: none
+		float: right
+		color: #025f70
+		font-weight: 800
+
+
+input
+	border-radius: 5px
+	min-width: 65%
+	padding: 5px
+	border: none
+
+
+
+.done
+	background: #51DF70 !important
+	color: #00891E
+
+
+.delete
+	display: none
