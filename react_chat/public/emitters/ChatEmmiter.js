@@ -77,8 +77,6 @@ ChatEmmiter.prototype.connect = function(username) {
     });
   });
 
-  console.log('Connection with username', username);
-
   this.peer = new Peer(username, {
     host: location.hostname,
     port: 9000,
@@ -92,6 +90,6 @@ ChatEmmiter.prototype.connect = function(username) {
   this.peer.on('connection', function(connection) {
     self._registerPeer(connection.peer, connection);
     console.log(connection);
-    self.emit(Actions.USER_CONNECTED, {})
+    self.emit(Actions.USER_CONNECTED, connection.peer)
   });
 }

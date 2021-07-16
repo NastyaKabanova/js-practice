@@ -9,7 +9,6 @@ var MessagesList = React.createClass({
 
   addMessage: function(message) {
     const messages = this.state.messages;
-    const container = this.refs.messageContainer.getDOMNode();
     messages.push(message);
     this.setState({
       messages: messages,
@@ -37,7 +36,7 @@ var MessagesList = React.createClass({
     }
 
     return (
-      <div ref="messageContainer" className="chat-messages col-xs-9 col-md-8 col-lg-8">
+      <div ref="messageContainer" className="chat-messages">
         {messages}
       </div>
     )

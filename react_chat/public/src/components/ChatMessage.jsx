@@ -7,11 +7,17 @@ var ChatMessage = React.createClass({
     var message = this.props.message;
     var hours = message.date.getHours();
     var minutes = message.date.getMinutes();
+    var time = '[' + hours + ':' + minutes + ']';
+    var className = "chat-message";
+
+    if (message.self) {
+      className += " self"
+    }
 
     return (
-      <div className="chat-message">
-        <div className="chat-message-time">{hours}:{minutes}</div>
-        <div className="chat-message-author">{message.author}</div>
+      <div className={className}>
+        <div className="chat-message-time">{time}</div>
+        <div className="chat-message-author">{message.author}:</div>
         <div className="chat-message-content">{message.content}</div>
       </div>
     )

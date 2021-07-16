@@ -37,7 +37,8 @@ var ChatBox = React.createClass({
     message = this.refs.messageInput.getDOMNode().value;
     this.addMessage({
       content: message,
-      author : this.chatEmitter.getUsername()
+      author : this.chatEmitter.getUsername(),
+      self: true,
     });
     this.chatEmitter.broadcast(message);
   },
@@ -50,14 +51,19 @@ var ChatBox = React.createClass({
   },
 
   render: function() {
-    console.log(this.props);
-    console.log(this);
     return (
       <div className="chat-box" ref="root">
-        <div className="chat-header"> REACT CHAT</div>
-        <div className="chat-content row">
-          <MessagesList ref="messagesList"></MessagesList>
-          <UsersList users={this.state.users} ref="usersList"></UsersList>
+        <div className="row">
+          <h3 className="col-xs-9 col-md-8 col-lg-8">Chat</h3>
+          <h3 className="col-xs-3 col-md-4 col-lg-4">My Dudes</h3>
+        </div>
+        <div className="chat-content row row-no-gutters">
+          <div className="col-xs-9 col-md-8 col-lg-8">
+            <MessagesList ref="messagesList"></MessagesList>
+          </div>
+          <div className="col-xs-3 col-md-4 col-lg-4">
+            <UsersList users={this.state.users} ref="usersList"></UsersList>
+          </div>
         </div>
         <MessageInput ref="messageInput" messageHandler={this.messageHandler}></MessageInput>
       </div>

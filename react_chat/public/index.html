@@ -9,29 +9,31 @@
     <title></title>
 </head>
 <body>
-    <section id="container">
-        <div>
-            <label for="username-input">Username</label>
-            <input type="text" id="username-input" class="form-control">
-            <br>
-            <button id="connect-btn" class="btn btn-primary">Connect</button>
-        </div>
-    </section>
+  <div class="chat-header">REACT CHAT</div>
+  <div id="chat-username"></div>
+  <section id="container">
+    <div id="login">
+      <label for="username-input">Username</label>
+      <input type="text" id="username-input" class="form-control">
+      <br>
+      <button id="connect-btn" class="btn btn-block btn-primary">Connect</button>
+    </div>
+  </section>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="lib/react/react-with-addons.js"></script>
-    <script src="lib/react/JSXTransformer.js"></script>
-    <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/peerjs/peer.js"></script>
-    <script src="lib/eventEmitter/EventEmitter.js"></script>
-    <script type="text/jsx" src="src/Action.js"></script>
-    <script type="text/jsx" src="emitters/ChatEmmiter.js"></script>
-    <script type="text/jsx" src="src/components/ChatBox.jsx"></script>
-    <script type="text/jsx" src="src/components/UsersList.jsx"></script>
-    <script type="text/jsx" src="src/components/ChatMessage.jsx"></script>
-    <script type="text/jsx" src="src/components/MessageInput.jsx"></script>
-    <script type="text/jsx" src="src/components/MessageList.jsx"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="lib/react/react-with-addons.js"></script>
+  <script src="lib/react/JSXTransformer.js"></script>
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/peerjs/peer.js"></script>
+  <script src="lib/eventEmitter/EventEmitter.js"></script>
+  <script type="text/jsx" src="src/Action.js"></script>
+  <script type="text/jsx" src="emitters/ChatEmmiter.js"></script>
+  <script type="text/jsx" src="src/components/ChatBox.jsx"></script>
+  <script type="text/jsx" src="src/components/UsersList.jsx"></script>
+  <script type="text/jsx" src="src/components/ChatMessage.jsx"></script>
+  <script type="text/jsx" src="src/components/MessageInput.jsx"></script>
+  <script type="text/jsx" src="src/components/MessageList.jsx"></script>
 
-    <script type="text/jsx" src="src/app.jsx"></script>
+  <script type="text/jsx" src="src/app.jsx"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ var UsersList = React.createClass({
     })
 
     return (
-      <div className="col-xs-3 col-md-4 col-lg-4">
+      <div className="users-list">
         {users}
       </div>
     )

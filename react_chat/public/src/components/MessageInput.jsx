@@ -9,6 +9,10 @@ var MessageInput = React.createClass({
     }
   },
 
+  componentDidMount(){
+    this.refs.input.getDOMNode().focus();
+  },
+
   keyHandler: function(event) {
     const message = this.state.message.trim();
 
@@ -23,6 +27,7 @@ var MessageInput = React.createClass({
   render: function() {
     return (
       <input
+        ref="input"
         type="text"
         className="form-control"
         placeholder="Enter smth"
