@@ -36,8 +36,50 @@ $(function() {
 
   $('#connect-btn').on('click', onAction);
 
-  // TODO: delete
-  const tmpUsername = Math.random().toString(36).substring(7);
-  usernameInput.val(tmpUsername);
-  onAction();
+  const themeDay = $('#theme-day');
+  const themeNight = $('#theme-night');
+
+  const dayColors = {
+    '--primary': '#006d77',
+    '--secondary': 'white',
+    '--bg': '#9fc0dc',
+    '--accent-1': '#ffb600',
+    '--accent-2': '#ff8700',
+    '--text': 'white',
+  };
+
+  const nightColors = {
+    '--primary': '#8ecae6',
+    '--secondary': '#75acb9',
+    '--bg': '#023047',
+    '--accent-1': '#ffb703',
+    '--accent-2': '#ff8700',
+    '--text': 'white',
+  };
+
+  themeNight.hide();
+
+  themeDay.on('click', function() {
+    themeDay.hide();
+    themeNight.show();
+    Object.entries(dayColors).forEach((entry) => {
+      const key = entry[0];
+      const value = entry[1];
+
+      document.documentElement.style.setProperty(key, value);
+    })
+  });
+
+  themeNight.on('click', function() {
+    themeDay.show();
+    themeNight.hide();
+    Object.entries(nightColors).forEach((entry) => {
+      const key = entry[0];
+      const value = entry[1];
+
+      document.documentElement.style.setProperty(key, value);
+    })
+  });
+
+  themeDay.trigger('click');
 })

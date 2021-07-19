@@ -1,15 +1,17 @@
-
-:root {
-  --primary: #8ecae6;
-  --secondary: #75acb9;
-  --bg: #023047;
-  --accent-1: #ffb703;
-  --accent-2: #fb8500;
+#theme-picker {
+  position: fixed;
+  top: 10;
+  left: 10;
 }
 
 body, html {
   height: 100%;
   background-color: var(--bg);
+}
+
+#theme-day, #theme-night {
+  color: var(--accent-2);
+  text-shadow: 1px 1px 1px #0000007d;
 }
 
 #login {
@@ -35,15 +37,23 @@ body, html {
   color: var(--accent-2);
   margin-bottom: 30px;
   text-align: center;
+  text-shadow: 1px 1px 1px #0000007d;
 }
 
 .chat-box h3 {
   color: var(--accent-1);
+  text-shadow: 1px 1px 4px #0000007d;
+}
+
+#login label {
+  color: var(--accent-1);
+  text-shadow: 1px 1px 4px #0000007d;
 }
 
 #chat-username {
   font-size: 25px;
   color: var(--accent-1);
+  text-shadow: 1px 1px 4px #0000007d;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -88,9 +98,10 @@ body, html {
 }
 
 .chat-messages-empty {
-  color: white;
+  color: var(--accent-2);
   margin: auto;
   font-size: 20px;
+  text-shadow: 1px 1px 1px #0000007d;
 }
 
 
@@ -98,6 +109,7 @@ body, html {
 .chat-message-author {
   color: var(--accent-1);
   margin-right: 5px;
+  text-shadow: 1px 1px 2px #000000a6;
 }
 
 .chat-message-author {
@@ -106,7 +118,7 @@ body, html {
 
 .chat-message-content {
   font-size: 15px;
-  color: white;
+  color: var(--text);
 }
 
 .chat-message-time {
