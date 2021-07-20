@@ -1,43 +1,192 @@
-$clr-bg-light: white
-$clr-bg-dark: black
+$clr-bg-light: #f0f6ff
+$clr-bg-dark: #17192a
+$clr-bg: var(--clr-bg)
 
-$clr-title-light: blue
-$clr-title-dark: white
+$clr-title-light: #24579d
+$clr-title-dark: #e3f5ff
+$clr-title: var(--clr-title)
 
-$clr-input-bg-light: rgb(0, 0, 1)
-$clr-input-bg-dark: rgb(1, 0, 0)
+$clr-input-bg-light: #dbe4f2
+$clr-input-bg-dark: #222732
+$clr-input-bg: var(--clr-input-bg)
 
-$clr-input-placeholder-light: #bbb
-$clr-input-placeholder-dark: #ccc
+$clr-input-placeholder-light: #c0cfe4
+$clr-input-placeholder-dark: #45506e
+$clr-input-placeholder: var(--clr-input-placeholder)
 
-$clr-input-
+$clr-input-border-light: #bacbe1
+$clr-input-border-dark: #222732
+$clr-input-border: var(--clr-input-border)
+
+$clr-picker-text-light: #2a5ca0
+$clr-picker-text-dark: #d6e1fd
+$clr-picker-text: var(--clr-picker-text)
+
+$clr-picker-light: #17192a
+$clr-picker-dark: white
+$clr-picker: var(--clr-picker)
+
+$clr-sun-light: #6ba8fa
+$clr-sun-dark: #363c57
+$clr-sun: var(--clr-sun)
+
+$clr-moon-light: #c9cad0
+$clr-moon-dark: #7c84a0
+$clr-moon: var(--clr-moon)
+
+$clr-date-light: #76787b
+$clr-date-dark: #70233c
+$clr-date: var(--clr-date)
+
+$clr-date-done-light: #c2c2c2
+$clr-date-done-dark: #3b1f33
+$clr-date-done: var(--clr-date-done)
+
+$clr-1: #ff535a
+$clr-2: #e745aa
+$clr-3: #802eff
+$clr-4: #1d7dff
+$clr-5: #44bbf8
+
+$clr-1-done: #cd2e34
+$clr-2-done: #9b266f
+$clr-3-done: #571db2
+$clr-4-done: #24579d
+$clr-5-done: #2b86b5
+
 
 \:root
 	--clr-bg: #{$clr-bg-light}
+	--clr-title: #{$clr-title-light}
+	--clr-input-bg: #{$clr-input-bg-light}
+	--clr-input-placeholder: #{$clr-input-placeholder-light}
+	--clr-input-border: #{$clr-input-border-light}
+	--clr-picker-text: #{$clr-picker-text-light}
+	--clr-picker: #{$clr-picker-light}
+	--clr-sun: #{$clr-sun-light}
+	--clr-moon: #{$clr-moon-light}
+	--clr-date: #{$clr-date-light}
+	--clr-date-done: #{$clr-date-done-light}
 
 \:root.dark
 	--clr-bg: #{$clr-bg-dark}
+	--clr-title: #{$clr-title-dark}
+	--clr-input-bg: #{$clr-input-bg-dark}
+	--clr-input-placeholder: #{$clr-input-placeholder-dark}
+	--clr-input-border: #{$clr-input-border-dark}
+	--clr-picker-text: #{$clr-picker-text-dark}
+	--clr-picker: #{$clr-picker-dark}
+	--clr-sun: #{$clr-sun-dark}
+	--clr-moon: #{$clr-moon-dark}
+	--clr-date: #{$clr-date-dark}
+	--clr-date-done: #{$clr-date-done-dark}
 
 body
-	background: $primary-color
+	background: $clr-bg
 	text-align: center
 	font-family: 'Open Sans', sans-serif
+	transition: all 0.5s ease-out
 
+#theme-picker
+	position: fixed
+	top: 10px
+	left: 10px
+	z-index: 1
 
-.intro
-	margin: 30px 0px
-	font-weight: bold
+	& button
+		margin-right: 5px
+		font-size: 25px
+		transition: all 0.5s ease-out
+
+#theme-light
+	color: $clr-sun
+
+#theme-dark
+	color: $clr-moon
+
+.intro h1
+	margin: 10px 0 30px
+	color: $clr-title
+	font-size: 50px
+	transition: all 0.5s ease-out
 
 p
 	font-weight: 600
 
+#inputs
+	width: 100%
+	max-width: 800px
+	margin: auto
+
+	& > div
+		width: 100%
+
+#color-picker
+	width: 100%
+	max-width: 800px
+	margin: auto
+	margin-bottom: 10px
+
+	h3
+		font-size: 20px
+		color: $clr-picker-text
+		text-align: left
+
+	#color-picker-list
+		display: flex
+		align-items: center
+
+	.color
+		width: 16px
+		height: 16px
+		margin-right: 8px
+		border-radius: 50%
+		cursor: pointer
+
+		&.selected
+			border: 2px solid $clr-picker
+
+.color-1
+	background-color: $clr-1
+
+	&:hover, &.done
+		background-color: $clr-1-done
+
+.color-2
+	background-color: $clr-2
+
+	&:hover, &.done
+		background-color: $clr-2-done
+
+.color-3
+	background-color: $clr-3
+
+	&:hover, &.done
+		background-color: $clr-3-done
+
+.color-4
+	background-color: $clr-4
+
+	&:hover, &.done
+		background-color: $clr-4-done
+
+.color-5
+	background-color: $clr-5
+
+	&:hover, &.done
+		background-color: $clr-5-done
 
 #enter
+	background-color: $clr-4
+	color: $clr-bg
+	height: 44px
+	width: 44px
 	border: none
-	padding: 5px 15px
+	font-size: 25px
+	padding: 0
+	margin-left: 15px
 	border-radius: 5px
-	color: $primary-color
-	background-color: #025F70
+	cursor: pointer
 	transition: all 0.75s ease
 	-webkit-transition: all 0.75s ease
 	-moz-transition: all 0.75s ease
@@ -45,10 +194,8 @@ p
 	-o-transition: all 0.75 ease
 	font-weight: normal
 
-
-#enter:hover
-	background-color: #02798F
-	color: #FFCD5D
+	&:hover
+		background-color: $clr-4-done
 
 ul
 	text-align: left
@@ -64,47 +211,60 @@ ul
 
 li
 	list-style: none
-	padding: 8px 10px
+	padding: 12px 10px
 	color: #ffffff
 	text-transform: capitalize
 	font-weight: 600
-	border: 2px solid #025f70
 	border-radius: 5px
-	margin-bottom: 10px
-	background: #4EB9CD
+	margin-bottom: 35px
 	transition: all 0.75s ease-out
 	-webkit-transition: all 0.75s ease-out
 	-moz-transition: all 0.75s ease-out
 	-ms-transition: all 0.75s ease-out
 	-o-transition: all 0.75 ease-out
 	animation: 0.7s linear li-enter
+	position: relative
+
+	.date
+		position: absolute
+		bottom: -20px
+		left: 20px
+		font-size: 15px
+		color: $clr-date
 
 	&.done
 		text-decoration: line-through
 
+		.date
+			color: $clr-date-done
+
 	&:hover
-		background: #76CFE0
-		margin-left: 30px
-		margin-right: -30px
+		margin-left: 10px
+		margin-right: -10px
 
 	& > button
 		font-weight: normal
 		background: none
 		border: none
 		float: right
-		color: #025f70
+		color: white
 		font-weight: 800
+		cursor: pointer
 
 
 input
 	border-radius: 5px
-	min-width: 65%
+	width: 100%
 	padding: 5px
-	border: none
 	height: 44px
+	background-color: $clr-input-bg
+	color: $clr-picker-text
+	border: 2px solid $clr-input-border
 
+	&::placeholder
+		color: $clr-input-placeholder
 
 
 .done
-	background: #51DF70 !important
-	color: #00891E
+	.edit
+		display: none
