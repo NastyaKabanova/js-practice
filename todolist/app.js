@@ -4,11 +4,15 @@ $(function () {
   // themes
   $('#theme-light').on('click', function() {
     $('html').removeClass('dark')
+    localStorage.setItem('theme', '#theme-light')
   })
 
   $('#theme-dark').on('click', function() {
     $('html').addClass('dark')
+    localStorage.setItem('theme', '#theme-dark')
   })
+
+  $(localStorage.getItem('theme') || '#theme-light').trigger('click')
 
   // color picker
   let currentColor = 'color-3'
@@ -63,6 +67,16 @@ $(function () {
     saveItems();
   }
 
+  function updateItem(id, v) {
+    const idx = items.findIndex(i => i.id === id)
+
+    if (idx > -1) {
+      items[idx].text = v;
+    }
+
+    saveItems();
+  }
+
   function toggleItem(id) {
     const idx = items.findIndex(i => i.id === id)
 
@@ -78,7 +92,7 @@ $(function () {
   function createItemDOM(item) {
     const id = item.id;
     const li = $('<li>')
-    li.html(item.text);
+    li.html('<span>'+item.text+"</span>");
     ul.append(li)
 
     li.click(function() {
@@ -105,17 +119,40 @@ $(function () {
     const deleteButton = $('<button>')
     deleteButton.html('<i class="fas fa-times"></i>')
     li.append(deleteButton)
-    deleteButton.click(function () {
+    deleteButton.click(function (e) {
+      e.stopPropagation();
       removeItem(id);
       li.remove();
     })
+
+    let edit = false;
+    const span = li.find('span')
 
     const editButton = $('<button>')
     editButton.addClass('edit')
     editButton.html('<i class="fas fa-pencil-alt"></i>')
     li.append(editButton)
-    editButton.click(function () {
-      // edit
+    editButton.click(function (e) {
+      e.stopPropagation();
+
+      if (edit) {
+        editButton.html('<i class="fas fa-pencil-alt"></i>')
+        const input = span.find('input')
+        const v = input.val()
+        span.html(v)
+        updateItem(id, v)
+      } else {
+        span.html('<input value="'+span.html()+'">')
+
+        editButton.html('<i class="fas fa-check"></i>')
+
+        const input = span.find('input')
+        input.on('click', function(e) {
+          e.stopPropagation()
+        })
+      }
+
+      edit = !edit
     })
   }
 

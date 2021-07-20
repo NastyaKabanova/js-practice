@@ -27,7 +27,7 @@
 body {
   background: var(--clr-bg);
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   transition: all 0.5s ease-out; }
 
 #theme-picker {
@@ -176,6 +176,10 @@ li {
     color: white;
     font-weight: 800;
     cursor: pointer; }
+  li input {
+    max-width: 50%;
+    height: 30px;
+    outline: none; }
 
 input {
   border-radius: 5px;
