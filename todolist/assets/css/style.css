@@ -1,3 +1,9 @@
+:root {
+  --clr-bg: red; }
+
+:root.dark {
+  --clr-bg: green; }
+
 body {
   background: #04A1BF;
   text-align: center;
@@ -7,24 +13,8 @@ body {
   margin: 30px 0px;
   font-weight: bold; }
 
-h1 {
-  color: #ffffff;
-  text-transform: uppercase;
-  font-weight: 800; }
-
 p {
   font-weight: 600; }
-
-#first {
-  margin-top: 10px;
-  color: #FFCD5D; }
-
-#second {
-  color: #51DF70; }
-
-#third {
-  color: #025F70;
-  margin-bottom: 30px; }
 
 #enter {
   border: none;
@@ -57,7 +47,7 @@ ul {
 
 li {
   list-style: none;
-  padding: 10px 20px;
+  padding: 8px 10px;
   color: #ffffff;
   text-transform: capitalize;
   font-weight: 600;
@@ -89,11 +79,9 @@ input {
   border-radius: 5px;
   min-width: 65%;
   padding: 5px;
-  border: none; }
+  border: none;
+  height: 44px; }
 
 .done {
   background: #51DF70 !important;
   color: #00891E; }
-
-.delete {
-  display: none; }

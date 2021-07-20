@@ -1,4 +1,22 @@
-$primary-color: #04A1BF
+$clr-bg-light: white
+$clr-bg-dark: black
+
+$clr-title-light: blue
+$clr-title-dark: white
+
+$clr-input-bg-light: rgb(0, 0, 1)
+$clr-input-bg-dark: rgb(1, 0, 0)
+
+$clr-input-placeholder-light: #bbb
+$clr-input-placeholder-dark: #ccc
+
+$clr-input-
+
+\:root
+	--clr-bg: #{$clr-bg-light}
+
+\:root.dark
+	--clr-bg: #{$clr-bg-dark}
 
 body
 	background: $primary-color
@@ -10,30 +28,9 @@ body
 	margin: 30px 0px
 	font-weight: bold
 
-
-h1
-	color: #ffffff
-	text-transform: uppercase
-	font-weight: 800
-
-
 p
 	font-weight: 600
 
-
-#first
-	margin-top: 10px
-	color: #FFCD5D
-
-
-#second
-	color: #51DF70
-
-
-
-#third
-	color: #025F70
-	margin-bottom: 30px
 
 #enter
 	border: none
@@ -67,7 +64,7 @@ ul
 
 li
 	list-style: none
-	padding: 10px 20px
+	padding: 8px 10px
 	color: #ffffff
 	text-transform: capitalize
 	font-weight: 600
@@ -104,13 +101,10 @@ input
 	min-width: 65%
 	padding: 5px
 	border: none
+	height: 44px
 
 
 
 .done
 	background: #51DF70 !important
 	color: #00891E
-
-
-.delete
-	display: none

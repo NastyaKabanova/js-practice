@@ -18,43 +18,29 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-    <title>Dom Manipulation | VLS</title>
+    <title>ToDo List</title>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <div class="row">
         <div class="intro col-12">
-          <h1>Work To-Dos</h1>
-          <div>
-            <div class="border1"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="helpText col-12">
-          <p id="first">Enter text into the input field to add items to your list.</p>
-          <p id="second">Click the item to mark it as complete.</p>
-          <p id="third">Click the "X" to remove the item from your list.</p>
+          <h1>ToDo-List</h1>
         </div>
       </div>
 
       <div class="row">
         <div class="col-12">
-          <input id="userInput" type="text" placeholder="New item..." maxlength="27">
+          <input id="userInput" type="text" placeholder="Create New Task" maxlength="27">
           <button id="enter"><i class="fas fa-plus"></i></button>
         </div>
       </div>
 
       <!-- Empty List -->
-      <div class="row">
-        <div class="listItems col-12">
-          <ul class="col-12 offset-0 col-sm-8 offset-sm-2">
-          </ul>
-        </div>
+      <div class="row justify-content-center">
+        <ul class="col-12 col-sm-8"></ul>
       </div>
+    </main>
 
-    </div>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
